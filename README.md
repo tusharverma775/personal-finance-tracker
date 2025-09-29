@@ -140,3 +140,29 @@ Transactions CRUD with validations
 Dashboard analytics with charts
 
 Redis caching for faster response times
+
+
+
+1. Admin User
+
+Email: admin@example.com
+
+Password: Admin@123
+
+Role: admin
+
+2. Regular User
+
+Email: user@example.com
+
+Password: User@123
+
+Role: user
+
+3. Read-Only User
+
+Email: readonly@example.com
+
+Password: ReadOnly@123
+
+Role: readonly
