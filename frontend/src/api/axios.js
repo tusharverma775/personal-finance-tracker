@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getAuthToken, logout } from "../utils/authHelpers";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "https://personal-finance-tracker-dp19.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000/api";
 
 const client = axios.create({
   baseURL: API_BASE,

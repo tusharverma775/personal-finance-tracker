@@ -7,7 +7,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("user");
 
   const [err, setErr] = useState(null);
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function Register() {
       navigate("/");
     } catch (error) {
       setErr(error?.response?.data?.message || "Registration failed");
-      alert(err)
+     
     }
   }
 
@@ -40,10 +40,27 @@ export default function Register() {
           <span className="text-sm">Password</span>
           <input type="password" value={password} onChange={e=>setPassword(e.target.value)} className="mt-1 block w-full rounded border px-3 py-2"/>
         </label>
-         <label className="block mb-4">
+        <label className="block mb-4">
+           <span className="text-sm">Role</span>
+        <select id="role"
+                name="role" 
+                value={role}
+                required
+                onChange={e => setRole(e.target.value)}
+                className="mt-1 block w-full rounded border px-3 py-2 ">
+      
+
+          <option value = "admin">Admin</option>
+          <option value = "user">User</option>
+         
+
+          <option value = "read-only">Read-Only</option>
+
+        </select> </label> 
+         {/* <label className="block mb-4">
           <span className="text-sm">Role</span>
           <input type="Role" value={role} onChange={e=>setRole(e.target.value)} className="mt-1 block w-full rounded border px-3 py-2"/>
-        </label>
+        </label> */}
         <button type="submit" className="w-full bg-blue-500 text-black bg-clip-padding-xl
          py-2 rounded">Create account</button>
       </form>

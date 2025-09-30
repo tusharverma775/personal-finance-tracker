@@ -10,11 +10,11 @@ const CACHE_KEY = 'categories:list';
     try {
       const cached = await redis.getCache(CACHE_KEY);
       if (cached) {
-        return res.json({ data: JSON.parse(cached), cached: true });
+        return res.json({ data: cached, cached: true });
       }
 
       const categories = await Category.findAll({ order: [['name', 'ASC']] });
-      const cahe  = await redis.setCache(CACHE_KEY,  JSON.stringify(categories), 3600);
+       await redis.setCache(CACHE_KEY,  JSON.stringify(categories), 3600);
 
       res.json({ data: categories, cached: false });
     } catch (err) {
